@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import java.util.*;
+public class Main
+{
+    static int a[],key,n,i;
+	public static void main(String[] args) {
+	    
+	    Scanner s= new Scanner(System.in);
+		System.out.println("Enter the size of elements");
+		 n= s.nextInt();
+		a= new int[n];
+		System.out.println("Enter the sorted array");
+		for(int i=0;i<n;i++)
+		    a[i]=s.nextInt();
+		System.out.println("Enter the key");
+		key=s.nextInt();
+		int find= jump(a,key);
+		System.out.println("key found at index "+find);
+	}
+	public static int jump(int a[],int key)
+	{
+	    int m=(int)Math.floor(Math.sqrt(n));
+	    int curIndex= m-1;
+	    while((curIndex<n)&&(key>a[curIndex]))
+	    {
+	        curIndex+=m;
+	    }
+	    for(i=curIndex-m+1;i<=curIndex&&i<n;i++)
+	    {
+	        if(key==a[i])
+	        return i;
+	    }
+	return -1;
+	}
+}
